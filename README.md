@@ -32,14 +32,14 @@ d) Undefined
 <details>
 <summary>View Answer</summary>
 
-### ✅ Answer:
+### Answer:
 c) Float
 
-### 📌 Reason:
+### Reason:
 JavaScript does not have a separate Float datatype.  
 All decimal numbers are stored as `Number`.
 
-### 💡 My Comment:
+### My Comment:
 Many beginners think Float is a separate datatype like C/C++, but in JavaScript both integer and decimal values come under the `Number` type.
 
 </details>
@@ -58,10 +58,10 @@ d) <!--
 <details>
 <summary>View Answer</summary>
 
-### ✅ Answer:
+### Answer:
 a) //
 
-### 📌 Reason:
+### Reason:
 `//` is used for single-line comments in JavaScript.
 
 Example:
@@ -71,7 +71,7 @@ Example:
 console.log("Hello");
 ```
 
-### 💡 My Comment:
+### My Comment:
 Comments improve code readability and help developers understand the code easily.
 
 </details>
@@ -90,10 +90,10 @@ d) "string"
 <details>
 <summary>View Answer</summary>
 
-### ✅ Answer:
+### Answer:
 b) "object"
 
-### 📌 Reason:
+### Reason:
 This is a historical bug in JavaScript.
 
 ```javascript
@@ -108,7 +108,7 @@ returns:
 
 even though `null` is not actually an object.
 
-### 💡 My Comment:
-This is one of the most famous JavaScript interview questions 😄
+### My Comment:
+This is one of the most famous JavaScript interview questions.
 
 </details>

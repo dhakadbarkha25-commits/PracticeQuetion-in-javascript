@@ -294,16 +294,18 @@ An **IIFE** is a function that executes **immediately after it is defined**. It 
 ```
 
 **Output:**
+```js
 Hello!
 ```
 
 
-**19 Outpout of below statment ** 
+**19. Output of the below statement**
 ```js
- console.log(x);
- let x = 5; 
+console.log(x);
+let x = 5;
 ```
-```js 
+
+```js
 a) 5
 b) undefined
 c) ReferenceError
@@ -312,9 +314,25 @@ d) NaN
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: c) ReferenceError
-</ul>
-</details>
+
+**Answer:** c) ReferenceError
+
+**Reason:**  
+Variables declared with `let` are **hoisted**, but they are **not initialized** until the declaration is reached. The period between the start of the block and the variable declaration is called the **Temporal Dead Zone (TDZ)**.
+
+Since `console.log(x)` tries to access `x` before it is initialized, JavaScript throws a **ReferenceError**.
+
+**Example:**
+```js
+console.log(x);
+let x = 5;
+```
+
+**Output:**
+```js
+ReferenceError: Cannot access 'x' before initialization
+```
+
 
 
 **20. How do you create an object in JavaScript? **

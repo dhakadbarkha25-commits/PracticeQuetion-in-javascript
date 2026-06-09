@@ -474,49 +474,92 @@ console.log(arr);
 ```
 
 
-**25 Which keyword allows block-scoped variable declarations? **
+**25. Which keyword allows block-scoped variable declarations?**
 ```js
 a) var
 b) let
 c) const
 d) Both b and c
-
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: d) Both b and c
-</ul>
-</details>
 
-**26 Which of the following is true about const variables?**
+**Answer:** d) Both b and c
+
+**Reason:**  
+In JavaScript, both `let` and `const` are **block-scoped**. This means they can only be accessed within the block (`{ }`) where they are declared.
+
+**Example:**
+
+```js
+{
+    let x = 10;
+    const y = 20;
+
+    console.log(x); // 10
+    console.log(y); // 20
+}
+
+console.log(x); // ReferenceError
+console.log(y); // ReferenceError
+```
+
+The variables `x` and `y` cannot be accessed outside the block because they are block-scoped.
+
+**26. Which of the following is true about `const` variables?**
 ```js
 a) Their values cannot be changed
 b) They cannot be reassigned
 c) They are always immutable
 d) All of the above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) They cannot be reassigned
-</ul>
-</details>
+
+**Answer:** b) They cannot be reassigned
+
+**Reason:**  
+The `const` keyword creates a variable whose **reference cannot be reassigned** after it is initialized.
+
+```js
+const x = 10;
+x = 20; // Error
+```
+
+**Output:**
+```js
+TypeError: Assignment to constant variable.
 
 
-**27. What is the output of console.log(typeof([]));? **
+**27. What is the output of `console.log(typeof([]));`?**
 ```js
 a) "object"
 b) "array"
 c) "undefined"
 d) "null"
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) "object"
-</ul>
-</details>
 
+**Answer:** a) `"object"`
 
-**28 What is a template literal in JavaScript? **
+**Reason:**  
+In JavaScript, **arrays are a special type of object**. Therefore, when the `typeof` operator is used on an array, it returns `"object"`.
+
+**Example:**
+
+```js
+console.log(typeof([]));
+```
+
+**Output:**
+```js
+object
+
+**28. What is a template literal in JavaScript?**
 ```js
 a) A type of array
 b) A string enclosed in backticks (` `)
@@ -526,9 +569,27 @@ d) A new ES6 data type
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) A string enclosed in backticks (` `)
-</ul>
-</details>
+
+**Answer:** b) A string enclosed in backticks (` `)
+
+**Reason:**  
+A **template literal** is a string enclosed in **backticks (` `)** instead of single (`' '`) or double (`" "`) quotes. It was introduced in **ES6** and allows you to:
+
+- Embed variables and expressions using `${}`
+- Create multi-line strings easily
+
+**Example:**
+
+```js
+let name = "John";
+
+console.log(`Hello, ${name}!`);
+```
+
+**Output:**
+```js
+Hello, John!
+```
 
 
 **29. What will console.log(..."Hello"); output? **
@@ -561,34 +622,120 @@ Answer: a) const add = (a, b) => a + b;
 
 
 
-**31 What does the spread operator ... do in JavaScript?**
+**31. What does the spread operator (`...`) do in JavaScript?**
 ```js
 a) Combines arrays
 b) Expands iterable elements
-C) All of the above
+c) All of the above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: C) All of the above
-</ul>
-</details>
+
+**Answer:** c) All of the above
+
+**Reason:**  
+The **spread operator (`...`)** is used to **expand iterable elements** such as arrays, strings, and objects. It can also be used to **combine arrays or objects**.
+
+### Example 1: Combining Arrays
+
+```js
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+
+let arr3 = [...arr1, ...arr2];
+
+console.log(arr3);
+```
+
+**Output:**
+```js
+[1, 2, 3, 4]
+```
+
+### Example 2: Expanding Array Elements
+
+```js
+let numbers = [10, 20, 30];
+
+console.log(...numbers);
+```
+
+**Output:**
+```js
+10 20 30
+```
+
+### Example 3: Copying an Array
+
+```js
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1];
+
+console.log(arr2);
+```
+
+**Output:**
+```js
+[1, 2, 3]
+```
 
 
-** 32. What will console.log([...new Set([1, 2, 2, 3])]); return? **
+**32. What will `console.log([...new Set([1, 2, 2, 3])]);` return?**
 ```js
 a) [1, 2, 3]
 b) [1, 2, 2, 3]
 c) Set {1, 2, 3}
 d) {1, 2, 3}
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) [1, 2, 3]
-</ul>
-</details>
 
+**Answer:** a) `[1, 2, 3]`
 
-**33. Which statement about arrow functions is true? **
+**Reason:**  
+A **`Set`** in JavaScript stores **only unique values**. Duplicate values are automatically removed.
+
+In this example:
+
+```js
+new Set([1, 2, 2, 3])
+```
+
+The duplicate value `2` is removed, resulting in:
+
+```js
+Set {1, 2, 3}
+```
+
+The **spread operator (`...`)** is then used to convert the `Set` back into an array.
+
+**Example:**
+
+```js
+console.log([...new Set([1, 2, 2, 3])]);
+```
+
+**Output:**
+```js
+[1, 2, 3]
+```
+
+### Step-by-Step:
+
+```js
+[1, 2, 2, 3]
+      ↓
+new Set([1, 2, 2, 3])
+      ↓
+Set {1, 2, 3}
+      ↓
+[...Set]
+      ↓
+[1, 2, 3]
+
+**33. Which statement about arrow functions is true?**
 ```js
 a) They do not bind this
 b) They can be used as constructors
@@ -598,10 +745,32 @@ d) They support arguments keyword
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) They do not bind this
-</ul>
-</details>
 
+**Answer:** a) They do not bind `this`
+
+**Reason:**  
+Arrow functions **do not have their own `this` value**. Instead, they inherit (`lexically bind`) `this` from their surrounding scope.
+
+**Example:**
+
+```js
+const person = {
+    name: "John",
+    greet: function () {
+        const sayHello = () => {
+            console.log(this.name);
+        };
+        sayHello();
+    }
+};
+
+person.greet();
+```
+
+**Output:**
+```js
+John
+```
 
 **34 Output of follow code? **
 ```js
@@ -632,11 +801,19 @@ b) Handle asynchronous operations
 c) Block execution until resolved
 d) Replace all callbacks
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) Handle asynchronous operations
-</ul>
-</details>
+
+**Answer:** b) Handle asynchronous operations
+
+**Reason:**  
+A **Promise** in JavaScript is used to handle **asynchronous operations** like API calls, file loading, or timers in a cleaner way than callbacks.
+
+A Promise represents a value that may be available:
+- **now (fulfilled)**
+- **later (pending → resolved)**
+- **never (rejected)**
 
 
 **36. Which state is NOT valid for a Promise?**
@@ -653,18 +830,25 @@ Answer: d) Running
 </details>
 
 
-**37. Use of Await keyword ?**
+**37. Use of `await` keyword?**
 ```js
 a) wait for an asynchronous operation to finish before continuing the execution
 b) make promise
-c) atop execution  
+c) stop execution  
 d) all of above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) wait for an asynchronous operation to finish before continuing the execution
-</ul>
-</details>
+
+**Answer:** a) wait for an asynchronous operation to finish before continuing the execution
+
+**Reason:**  
+`await` keyword JavaScript में **async function के अंदर use होता है** और यह किसी **Promise के resolve या reject होने तक wait करता है**।
+
+यानि यह asynchronous operation को पूरा होने तक रोकता है (sirf उसी function के अंदर), फिर आगे का code चलता है।
+
+---
 
 
 **38. Which method selects an element by ID?**
@@ -682,18 +866,33 @@ Answer: b) document.getElementById()
 
 
 
-**39 Which event is triggered when an input field loses focus?**
+**39. Which event is triggered when an input field loses focus?**
 ```js
 a) click
 b) blur
 c) focus
 d) change
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) blur
-</ul>
-</details>
+
+**Answer:** b) blur
+
+**Reason:**  
+The **`blur` event** is triggered when an input field or any HTML element **loses focus**.
+
+This happens when the user clicks outside the input field or moves to another field using the `Tab` key.
+Focus क्या है?
+
+जब आप input box के अंदर click करते हो और typing कर सकते हो, तो उस input पर focus होता है।
+
+<input type="text">
+User ने input box पर click किया → focus event trigger होगा।
+
+Blur क्या है?
+अब अगर user input box से बाहर कहीं और click कर दे या Tab दबाकर दूसरे field में चला जाए, तो input box focus खो देता है (loses focus)।
+उस समय blur event trigger होता है।
 
 
 **40. Which method adds an event listener to an element?**
@@ -710,20 +909,28 @@ Answer: a) element.addEventListener()
 </details>
 
 
-**41. What does event.preventDefault() do?**
+**41. What does `event.preventDefault()` do?**
 ```js
 a) Stops the default action of an event
 b) Stops event propagation
 c) Prevents event from being attached
 d) None of the above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) Stops the default action of an event
-</ul>
-</details>
 
-**43. What is localStorage used for?**
+**Answer:** a) Stops the default action of an event
+
+**Reason :**  
+The **`event.preventDefault()`** method is used to **prevent the browser's default behavior for an event**.
+
+JavaScript में कुछ HTML elements का एक **default action** होता है।  
+`event.preventDefault()` उस default action को रोक देता है।
+
+---
+
+**43. What is `localStorage` used for?**
 ```js
 a) Storing session data
 b) Storing data persistently in the browser
@@ -733,12 +940,16 @@ d) Caching images
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) Storing data persistently in the browser
-</ul>
-</details>
+
+**Answer:** b) Storing data persistently in the browser
+
+**Reason:**  
+`localStorage` is a Web Storage API that is used to **store data permanently (persistently) in the browser**.
 
 
-**44 Which method converts a JavaScript object into a JSON string?**
+
+
+**44. Which method converts a JavaScript object into a JSON string?**
 ```js
 a) JSON.stringify()
 b) JSON.parse()
@@ -748,23 +959,52 @@ d) parseJSON()
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) JSON.stringify()
-</ul>
-</details>
+
+**Answer:** a) `JSON.stringify()`
+
+**Reason (Hindi + English):**  
+The **`JSON.stringify()`** method is used to **convert a JavaScript object into a JSON string**.
+
+JavaScript में `localStorage` केवल **strings** को store कर सकता है। इसलिए, किसी object को store करने से पहले उसे JSON string में बदलने के लिए `JSON.stringify()` का उपयोग किया जाता है।
+
+---
+
+### Example:
+
+```js
+let user = {
+    name: "John",
+    age: 25
+};
+
+let jsonData = JSON.stringify(user);
+
+console.log(jsonData);
+```
+
+### Output:
+```js
+{"name":"John","age":25}
+```
 
 
-**45 What will console.log(parseInt("10px")) return?**
+
+**45. What will `console.log(parseInt("10px"))` return?**
 ```js
 a) 10
 b) NaN
 c) "10px"
 d) Error
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) 10
-</ul>
-</details>
+
+**Answer:** a) `10`
+
+**Reason:**  
+The **`parseInt()`** function converts a string into an integer (whole number).
+
 
 
 **46. Which method executes a function repeatedly with a time interval? **
@@ -799,7 +1039,7 @@ Answer: c) Array.isArray(x)
 
 
 
-** 48. What is a closure in JavaScript?**
+**48. What is a closure in JavaScript?**
 ```js
 a) A function inside another function that has access to its parent’s scope
 b) A block of code that runs automatically
@@ -809,9 +1049,43 @@ d) Both a and c
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: d) Both a and c
-</ul>
-</details>
+
+**Answer:** d) Both a and c
+
+**Reason :**  
+A **closure** is created when a function is defined inside another function and **the inner function remembers and can access the variables of its parent (outer) function even after the parent function has finished executing.**
+
+इसकी वजह से JavaScript में **private variables** बनाए जा सकते हैं, जिन्हें बाहर से सीधे access नहीं किया जा सकता।
+
+---
+
+### Example:
+
+```js
+function outer() {
+    let count = 0;
+
+    return function () {
+        count++;
+        console.log(count);
+    };
+}
+
+const counter = outer();
+
+counter();
+counter();
+counter();
+```
+
+### Output:
+```js
+1
+2
+3
+```
+
+---
 
 
 
@@ -898,33 +1172,82 @@ Answer: d) All of the above
 </details>
 
 
-**54 What happens if an error occurs inside the try block?**
+**54. What happens if an error occurs inside the `try` block?**
 ```js
 a) The script stops execution
 b) The error is caught in the catch block
 c) The script crashes
 d) The error is ignored
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) The error is caught in the catch block
-</ul>
-</details>
+
+**Answer:** b) The error is caught in the `catch` block
+
+**Reason :**  
+In JavaScript, the **`try...catch`** statement is used for **error handling**.
+
+If an error occurs inside the **`try` block**, JavaScript immediately stops executing the remaining code inside `try` and transfers control to the **`catch` block`, where the error can be handled.
+
+इससे program अचानक बंद (crash) नहीं होता और हम error को manage कर सकते हैं।
+
+---
+
+### Example:
+
+```js
+try {
+    console.log(x); // x is not defined
+} catch (error) {
+    console.log("An error occurred!");
+}
+```
+
+### Output:
+```js
+An error occurred!
+```
 
 
-**55. What will console.log(x); inside a try block with no catch or finally do?**
+**55. What will `console.log(x);` inside a `try` block with no `catch` or `finally` do?**
 ```js
 a) Print undefined
 b) Print null
 c) Throw a ReferenceError
 d) Nothing
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: c) Throw a ReferenceError
-</ul>
-</details>
 
+**Answer:** c) Throw a ReferenceError
+
+**Reason :**  
+If `x` has not been declared, then:
+
+```js
+console.log(x);
+```
+
+will throw a **ReferenceError** because JavaScript cannot find the variable `x`.
+
+If this statement is placed inside a `try` block **without a `catch` or `finally` block**, the error is **not handled** and the program will terminate with a `ReferenceError`.
+
+---
+
+### Example:
+
+```js
+try {
+    console.log(x);
+}
+```
+
+### Output:
+```js
+ReferenceError: x is not defined
+```
 
 **56. Which method is used to generate a custom error?**
 ```js
@@ -933,25 +1256,80 @@ b) console.error()
 c) generateError()
 d) raiseError()
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: a) throw new Error()
-</ul>
-</details>
+
+**Answer:** a) `throw new Error()`
+
+**Reason:**  
+In JavaScript, the **`throw`** statement is used to create (generate) a custom error, and the **`Error`** object is used to provide an error message.
+
+जब programmer किसी specific condition पर अपना खुद का error generate करना चाहता है, तब `throw new Error()` का उपयोग किया जाता है।
+
+---
+
+### Example:
+
+```js
+let age = 15;
+
+if (age < 18) {
+    throw new Error("You must be at least 18 years old.");
+}
+```
+
+### Output:
+```js
+Error: You must be at least 18 years old.
+```
 
 
-**57. What will finally do in a try-catch-finally block?**
+
+**57. What will `finally` do in a `try-catch-finally` block?**
 ```js
 a) Execute only if no error occurs
 b) Execute only if an error occurs
 c) Always execute
 d) None of the above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: c) Always execute
-</ul>
-</details>
+
+**Answer:** c) Always execute
+
+**Reason :**  
+The **`finally`** block is used to execute code that **must run regardless of whether an error occurs or not**.
+
+JavaScript में `finally` block **हमेशा execute होता है**, चाहे:
+- Error आए 
+- Error न आए 
+- Error को `catch` handle करे 
+
+It is commonly used for **cleanup tasks**, such as closing files, releasing resources, or hiding loading indicators.
+
+---
+
+### Example 1: No Error
+
+```js
+try {
+    console.log("Try block");
+} catch (error) {
+    console.log("Catch block");
+} finally {
+    console.log("Finally block");
+}
+```
+
+### Output:
+```js
+Try block
+Finally block
+```
+
+---
 
 
 **58. OOP (Object-Oriented Programming) in JavaScript
@@ -1006,11 +1384,43 @@ b) super()
 c) this()
 d) constructor()
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: b) super()
-</ul>
-</details>
+
+**Answer:** b) `super()`
+
+**Reason:**  
+In JavaScript, the **`super()`** method is used to call the **constructor of the parent (base) class**.
+
+जब एक class दूसरी class को `extends` करती है, तो child class के constructor में parent class के constructor को call करने के लिए `super()` का उपयोग किया जाता है।
+
+---
+
+### Example:
+
+```js
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name) {
+        super(name); // Calls parent class constructor
+    }
+}
+
+const dog = new Dog("Tommy");
+console.log(dog.name);
+```
+
+### Output:
+```js
+Tommy
+```
+
 
 
 **62 Which statement about JavaScript classes is true?**

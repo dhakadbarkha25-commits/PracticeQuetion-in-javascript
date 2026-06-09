@@ -335,18 +335,36 @@ ReferenceError: Cannot access 'x' before initialization
 
 
 
-**20. How do you create an object in JavaScript? **
+**20. How do you create an object in JavaScript?**
 ```js
 a) let obj = {};
 b) let obj = new Object();
 c) Both a and b
 d) None of the above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: c) Both a and b
-</ul>
-</details>
+
+**Answer:** c) Both a and b
+
+**Reason:**  
+In JavaScript, an object can be created in multiple ways. The two most common methods are:
+
+1. **Object Literal Syntax (`{}`)** – This is the simplest and most commonly used way.
+2. **Object Constructor (`new Object()`)** – This also creates an object but is less commonly used.
+
+**Example 1: Object Literal**
+```js
+let obj = {};
+console.log(obj);
+```
+
+**Example 2: Object Constructor**
+```js
+let obj = new Object();
+console.log(obj);
+```
 
 
 **21 How do you access a property in an object?**

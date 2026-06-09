@@ -367,17 +367,44 @@ console.log(obj);
 ```
 
 
-**21 How do you access a property in an object?**
+**21. How do you access a property in an object?**
 ```js
 a) obj[property]
 b) obj.property
 c) Both a and b
 d) None of the above
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: c) Both a and b
-</ul>
+
+**Answer:** c) Both a and b
+
+**Reason:**  
+In JavaScript, object properties can be accessed in two ways:
+
+1. **Dot Notation (`obj.property`)**
+2. **Bracket Notation (`obj[property]`)**
+
+Both methods are valid and are commonly used.
+
+**Example:**
+
+```js
+let obj = {
+    name: "John",
+    age: 25
+};
+
+console.log(obj.name);      // Dot notation
+console.log(obj["name"]);   // Bracket notation
+```
+
+**Output:**
+```js
+John
+John
+```
 </details>
 
 **22. Which method is used to add a new element at the end of an array?**

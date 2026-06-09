@@ -263,6 +263,10 @@ d) 0
 	<summary><b>View Answer</b></summary><ul>
 Answer: b) undefined
 </ul>
+	Reason:
+
+In JavaScript, every function returns a value. If you do not write a return statement, JavaScript automatically returns undefined.
+undefined means that no value has been returned or assigned.
 </details>
 
 

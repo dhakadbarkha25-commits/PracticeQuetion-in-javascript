@@ -435,18 +435,43 @@ Answer: b) 3
 </details>
 
 
-**24 How do you remove first 2 element of an array?**
+**24. How do you remove first 2 elements of an array?**
 ```js
 a) pop()
 b) shift()
 c) unshift()
 d) splice()
 ```
+
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: d) splice()
-</ul>
-</details>
+
+**Answer:** d) splice()
+
+**Reason:**  
+The `splice()` method is used to **add, remove, or replace elements** in an array. To remove the **first 2 elements**, use:
+
+```js
+array.splice(0, 2);
+```
+
+- `0` → Starting index
+- `2` → Number of elements to remove
+
+**Example:**
+
+```js
+let arr = [10, 20, 30, 40, 50];
+
+arr.splice(0, 2);
+
+console.log(arr);
+```
+
+**Output:**
+```js
+[30, 40, 50]
+```
 
 
 **25 Which keyword allows block-scoped variable declarations? **

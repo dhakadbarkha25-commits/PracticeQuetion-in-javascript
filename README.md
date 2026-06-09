@@ -270,7 +270,7 @@ undefined means that no value has been returned or assigned.
 </details>
 
 
-** 18. Which type of function executes immediately after its definition? **
+**18. Which type of function executes immediately after its definition?**
 ```js
 a) Anonymous function
 b) Named function
@@ -280,9 +280,22 @@ d) Arrow function
 
 <details>
 	<summary><b>View Answer</b></summary><ul>
-Answer: c) IIFE
-</ul>
-</details>
+
+**Answer:** c) IIFE (Immediately Invoked Function Expression)
+
+**Reason:**  
+An **IIFE** is a function that executes **immediately after it is defined**. It does not need to be called separately because it is invoked automatically using an extra pair of parentheses `()`.
+
+**Example:**
+```js
+(function () {
+    console.log("Hello!");
+})();
+```
+
+**Output:**
+Hello!
+```
 
 
 **19 Outpout of below statment ** 
